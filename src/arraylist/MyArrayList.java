@@ -80,5 +80,67 @@ public class MyArrayList<E> {
             }
         return -1;
     }
+    /**
+     * 通过索引查找元素
+     * @param index
+     * @return
+     */
+    public E get(int index){
+        checkIndex(index);
+        return elements[index];
+    }
+
+    /**
+     * 通过索引直接设置值
+     * @param index
+     * @param newElement
+     * @return
+     */
+    public E set(int index,E newElement){
+        checkIndex(index);
+       E oldElement = elements[index];
+       elements[index] = newElement;
+       return oldElement;
+    }
+
+    public void add(E element){
+        set(size++,element);
+    }
+
+    public void add(int index,E element){
+        if( index < 0 || index > size){
+            throw new IndexOutOfBoundsException("size:"+size+","+"index:"+index);
+        }
+        ensureCapacity(size+1);
+        for (int i = index; i < size ; i++) {
+            elements[size - 1] = elements[size];
+
+        }
+
+    }
+
+    /**
+     * 自动扩容
+     * @param capacity
+     */
+    private void ensureCapacity(int capacity){
+         int oldCapacity = elements.length;
+         if ( capacity <= oldCapacity) return;
+         int newCapacity = oldCapacity + (oldCapacity >> 1);
+         E[] newElments = (E[]) new Object[newCapacity];
+         for (int i = 0; i < size; i++) {
+            newElments[i] = elements[i];
+        }
+         elements = newElments;
+    }
+    /**
+     * 检查查询时索引是否越界
+     * @param index
+     */
+    private void checkIndex(int index){
+        if ( index < 0 || index >= size ){
+            throw new IndexOutOfBoundsException("size:"+size+","+"index:"+index);
+        }
+    }
 }
 
