@@ -1,5 +1,7 @@
 package arraylist;
 
+import java.util.Arrays;
+
 /**
  * @Author hao.yang
  * @Date 2021/1/16
@@ -103,22 +105,41 @@ public class MyArrayList<E> {
        return oldElement;
     }
 
+    /**
+     * 复用add函数实现在末尾添加
+     * @param element
+     */
     public void add(E element){
-        set(size++,element);
+        add(size,element);
     }
 
+    /**
+     * 往指定索引处添加元素
+     * @param index
+     * @param element
+     */
     public void add(int index,E element){
         if( index < 0 || index > size){
             throw new IndexOutOfBoundsException("size:"+size+","+"index:"+index);
         }
-        ensureCapacity(size+1);
-        for (int i = index; i < size ; i++) {
-            elements[size - 1] = elements[size];
-
+        //判断即使在末尾添加元素是否需要扩容
+        ensureCapacity(size + 1);
+        for (int i = size; i > index ; i--) {
+            elements[i] = elements[i - 1];
         }
-
+        elements[index] = element;
+        size++;
     }
 
+    public E remove(int index){
+        checkIndex(index);
+        E oldElement = elements[index] ;
+        for (int i = index + 1; i < size; i++) {
+            elements[i - 1] = elements[i];
+        }
+        elements[--size] = null;
+        return oldElement;
+    }
     /**
      * 自动扩容
      * @param capacity
@@ -141,6 +162,14 @@ public class MyArrayList<E> {
         if ( index < 0 || index >= size ){
             throw new IndexOutOfBoundsException("size:"+size+","+"index:"+index);
         }
+    }
+
+    @Override
+    public String toString() {
+        return "MyArrayList{" +
+                "size=" + size +
+                ", elements=" + Arrays.toString(elements) +
+                '}';
     }
 }
 
