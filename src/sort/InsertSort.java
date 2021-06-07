@@ -1,5 +1,8 @@
 package sort;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @author hao.yang
  * @date 2021/5/7
@@ -36,5 +39,7 @@ public class InsertSort {
             System.out.println();
         }
         }
+
+        List list = new ArrayList();
 
 }

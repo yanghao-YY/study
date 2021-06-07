@@ -1,5 +1,7 @@
 package sort;
 
+import java.util.Collection;
+
 /**
  * @author hao.yang
  * @date 2021/5/7
