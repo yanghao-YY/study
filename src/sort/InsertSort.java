@@ -40,6 +40,5 @@ public class InsertSort {
         }
         }
 
-        List list = new ArrayList();
 
 }
