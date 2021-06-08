@@ -13,7 +13,7 @@ public class PrintNumInTurnThread2 {
 
        odd = new Thread(()->{
            for (int i = 1; i < 1000; i+=2) {
-               System.out.println(Thread.currentThread()+":"+i);
+               System.out.println(Thread.currentThread().getName()+":"+i);
                LockSupport.unpark(even);
                //执行到最后一步时，就不要阻塞线程了，让程序能正常结束
                if(i != 999){
@@ -28,7 +28,7 @@ public class PrintNumInTurnThread2 {
                         //偶数线程先park，能够保证奇数线程一定先打印；同时因为unpark可以在park之前,意味着奇数线程可以先生成凭证，偶数线程必须先park去消费这个凭证再打印，如果打印之后再消费可能出现偶数线程连续执行。
                         LockSupport.park();
                     }
-                    System.out.println(Thread.currentThread()+":"+i);
+                    System.out.println(Thread.currentThread().getName()+":"+i);
                     LockSupport.unpark(odd);
 
             }

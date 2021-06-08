@@ -12,7 +12,7 @@ public class PrintNumInTurnThread implements Runnable{
         for (int i = 0; i < 500 ; i++) {
              synchronized (lock){
                  lock.notify();
-                 System.out.println(Thread.currentThread()+":"+num);
+                 System.out.println(Thread.currentThread().getName()+":"+num);
                  num++;
                  try {
                      if(i != 499){
