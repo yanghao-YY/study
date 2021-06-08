@@ -25,7 +25,7 @@ public class PrintNumInTurnThread2 {
         even = new Thread(()->{
                 for (int i = 2; i < 1001; i+=2) {
                     if(i != 1001){
-                        //偶数线程先park，能够保证奇数线程一定先打印；同时因为unpark可以在park之前,意味着奇数线程可以先生成许可，偶数线程必须先park去消费这个许可再打印，如果打印之后再消费可能出现偶数线程连续执行。
+                        //偶数线程先park，能够保证奇数线程一定先打印；同时因为unpark可以在park之前,意味着奇数线程可以先生成凭证，偶数线程必须先park去消费这个凭证再打印，如果打印之后再消费可能出现偶数线程连续执行。
                         LockSupport.park();
                     }
                     System.out.println(Thread.currentThread()+":"+i);
