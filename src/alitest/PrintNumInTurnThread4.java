@@ -18,8 +18,8 @@ public class PrintNumInTurnThread4 {
                 for (int i = 0; i < 500; i++) {
                     try {
                         reentrantLock.lock();
-                        condition.signal();
                         System.out.println(Thread.currentThread().getName()+":"+num);
+                        condition.signal();
                         num++;
                         if (i != 499){
                             condition.await();

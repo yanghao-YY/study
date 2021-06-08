@@ -10,6 +10,5 @@ public class PrintNumInTurnThreadTest {
             new Thread(new PrintNumInTurnThread()
             ).start();
         }
-
     }
 }

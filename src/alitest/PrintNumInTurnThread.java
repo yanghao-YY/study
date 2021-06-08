@@ -11,8 +11,8 @@ public class PrintNumInTurnThread implements Runnable{
     public void run() {
         for (int i = 0; i < 500 ; i++) {
              synchronized (lock){
-                 lock.notify();
                  System.out.println(Thread.currentThread().getName()+":"+num);
+                 lock.notify();
                  num++;
                  try {
                      if(i != 499){
@@ -22,6 +22,13 @@ public class PrintNumInTurnThread implements Runnable{
                      e.printStackTrace();
                  }
              }
+        }
+    }
+
+    public static void main(String[] args) {
+        for (int i = 0 ; i < 2 ; i++) {
+            new Thread(new PrintNumInTurnThread()
+            ).start();
         }
     }
 
