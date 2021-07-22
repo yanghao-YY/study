@@ -6,6 +6,10 @@ import java.util.Stack;
  * @author hao.yang
  * @date 2021/7/5
  */
+
+/**
+ * ## 2021/07/05 两个栈实现队列
+ */
 public class TwoStackIntoQueue {
     private static Stack<Integer> stackInput = new Stack<>();
     private static Stack<Integer> stackOutput = new Stack<>();

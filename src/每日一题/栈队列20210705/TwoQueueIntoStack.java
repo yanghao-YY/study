@@ -7,6 +7,11 @@ import java.util.Queue;
  * @author hao.yang
  * @date 2021/7/5
  */
+
+/**
+ *
+ ## 2021/07/05 两个队列实现栈
+ */
 public class TwoQueueIntoStack {
     private static Queue<Integer> queue01 = new LinkedList<>();
     private static Queue<Integer> queue02 = new LinkedList<>();

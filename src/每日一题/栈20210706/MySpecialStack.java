@@ -7,6 +7,18 @@ import java.util.Stack;
  * @author hao.yang
  * @date 2021/7/6
  */
+
+/**
+ * ## **2021/07/06** 实现可以获取最小值的栈
+ *
+ * ```java
+ * /**
+ *  * @Auther: licl
+ *  * @Date: 2021/07/06
+ *  * @Description: 问题：实现一个特殊的栈，在实现栈的基本功能的同时，再实现返回栈中最小元素的操作
+ *  *                 要求：1.pop push getMin操作的时间复杂度都是O(1)
+ *  *                     2.设计的栈类型可以使用现成的栈结构。
+ */
 public class MySpecialStack {
 
     private static ArrayList<Integer> itemList = new ArrayList<>();
